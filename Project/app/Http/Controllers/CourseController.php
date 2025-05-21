@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\CourseRequest;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
 {
@@ -23,27 +24,6 @@ class CourseController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create(): View
-    {
-        $course = new Course();
-
-        return view('course.create', compact('course'));
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(CourseRequest $request): RedirectResponse
-    {
-        Course::create($request->validated());
-
-        return Redirect::route('courses.index')
-            ->with('success', 'Course created successfully.');
-    }
-
-    /**
      * Display the specified resource.
      */
     public function show($id): View
@@ -53,32 +33,42 @@ class CourseController extends Controller
         return view('course.show', compact('course'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id): View
+    public function buy($id_course)
     {
-        $course = Course::find($id);
+        $course = Course::find($id_course);
+        
+        if (!$course) {
+            return redirect()->route('courses.index')->with('error', 'El curso no existe.');
+        }
 
-        return view('course.edit', compact('course'));
+        // Verificar si el usuario ya compró este curso
+        $user = Auth::user();
+        if ($user->transactions()->where('course_id', $id_course)->exists()) {
+            return redirect()->route('courses.index')->with('error', 'Ya compraste este curso.');
+        }
+
+        return view('course.buy', compact('course'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(CourseRequest $request, Course $course): RedirectResponse
+    public function purchase(Request $request, $id_course)
     {
-        $course->update($request->validated());
+        $course = Course::find($id_course);
 
-        return Redirect::route('courses.index')
-            ->with('success', 'Course updated successfully');
-    }
+        if (!$course) {
+            return redirect()->route('courses.index')->with('error', 'El curso no existe.');
+        }
 
-    public function destroy($id): RedirectResponse
-    {
-        Course::find($id)->delete();
+        // Crear la transacción
+        Transaction::create([
+            'user_id' => Auth::id(),
+            'course_id' => $id_course,
+            'card_number' => $request->card_number,
+            'card_holder' => $request->card_holder,
+            'expiry_date' => $request->expiry_date,
+            'cvv' => $request->cvv,
+            'amount' => $course->price,
+        ]);
 
-        return Redirect::route('courses.index')
-            ->with('success', 'Course deleted successfully');
+        return redirect()->route('courses.index')->with('success', 'Compra realizada exitosamente.');
     }
 }
