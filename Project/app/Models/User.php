@@ -24,6 +24,7 @@ class User extends Authenticatable
         'birthdate',
         'robotics_level',
         'academic_level',
+        'role',
     ];
 
     /**

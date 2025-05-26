@@ -9,6 +9,7 @@ use App\Http\Requests\CourseRequest;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Transaction;
 
 class CourseController extends Controller
 {
