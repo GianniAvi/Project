@@ -180,7 +180,7 @@
                         <h4>Nuestros servicios</h4>
                         <ul>
                             <li><i class="bi bi-chevron-right"></i> <a href="https://www.uabc.mx/">UABC</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Anuncios UABC</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#">Difusión UABC</a></li>
                             <li><i class="bi bi-chevron-right"></i> <a href="#">IA</a></li>
                             <li><i class="bi bi-chevron-right"></i> <a href="#">Diseño web</a></li>
                         </ul>
