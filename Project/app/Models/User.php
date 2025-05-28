@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Course;
 
 class User extends Authenticatable
 {
@@ -54,4 +55,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Transaction::class, 'user_id', 'id');
     }
+
+    public function courses()
+    {
+        return $this->belongsToMany(Course::class, 'transactions', 'user_id', 'course_id');
+    }
+
 }

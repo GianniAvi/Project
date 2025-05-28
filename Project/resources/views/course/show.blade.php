@@ -1,53 +1,27 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $course->name ?? __('Show') . " " . __('Course') }}
+    Detalles del Curso
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
-                        <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Course</span>
-                        </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary btn-sm" href="{{ route('courses.index') }}"> {{ __('Back') }}</a>
-                        </div>
-                    </div>
+<div class="max-w-3xl mx-auto px-6 py-10">
+    <div class="bg-gray-800 rounded-xl shadow-md p-6 text-white">
+        <h2 class="text-3xl font-bold mb-4">{{ $course->name }}</h2>
 
-                    <div class="card-body bg-white">
-                        
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Id Course:</strong>
-                                    {{ $course->id_course }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Name:</strong>
-                                    {{ $course->name }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Description:</strong>
-                                    {{ $course->description }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Recommendedlevel:</strong>
-                                    {{ $course->recommendedlevel }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Durationdays:</strong>
-                                    {{ $course->durationdays }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Price:</strong>
-                                    {{ $course->price }}
-                                </div>
-
-                    </div>
-                </div>
-            </div>
+        <div class="mb-4">
+            <p><span class="font-semibold">Descripción:</span> {{ $course->description }}</p>
         </div>
-    </section>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <p><span class="font-semibold">Nivel Recomendado:</span> {{ $course->recommendedlevel }}</p>
+            <p><span class="font-semibold">Duración:</span> {{ $course->durationdays }} días</p>
+            <p><span class="font-semibold">Precio:</span> ${{ $course->price }}</p>
+        </div>
+
+        <div class="mt-6">
+            <a href="{{ route('dashboard') }}" class="inline-block text-sm text-blue-400 hover:underline">← Volver al panel</a>
+        </div>
+    </div>
+</div>
 @endsection

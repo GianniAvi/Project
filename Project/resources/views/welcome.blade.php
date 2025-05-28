@@ -35,10 +35,9 @@
     <body class="index-page">
         <header id="header" class="header d-flex align-items-center fixed-top">
             <div class="container-fluid container-xl position-relative d-flex align-items-center">
-            <a href="index.html" class="logo d-flex align-items-center me-auto">
-                <!-- Uncomment the line below if you also wish to use an image logo -->
-                <!-- <img src="assets/img/logo.png" alt=""> -->
-                <h1 class="sitename">Nombre</h1>
+            <a href="#" class="logo d-flex align-items-center me-auto">
+                <img src="{{ asset('img/tecolote-cabeza.png') }}" alt="">
+                <h1 class="sitename">Tech-Olote</h1>
             </a>
             <nav id="navmenu" class="navmenu">
                 <ul>
@@ -57,19 +56,19 @@
         <main class="main">
             <!-- Hero Section -->
             <section id="hero" class="hero section dark-background">
-                <img src="{{ asset('img/hero-bg.jpg') }}" alt="" data-aos="fade-in">
+                <img src="{{ asset('img/tecolote-cabeza-2.png') }}" alt="" data-aos="fade-in">
                 <div class="container d-flex flex-column align-items-center">
                     <h2 data-aos="fade-up" data-aos-delay="100">DESCUBRE. APRENDE. CREA.</h2>
                     <p data-aos="fade-up" data-aos-delay="200">Aprende sobre robótica con nosotros</p>
                     <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
                         <div class="space-x-4">
                             @if (Route::has('login'))
-                                <a href="{{ route('login') }}" class="px-6 py-3 bg-blue-700 text-white rounded-lg shadow-lg hover:bg-blue-800 transition-all">
+                                <a href="{{ route('login') }}" class="px-6 py-3 bg-blue-700 text-white rounded-lg shadow-lg hover:bg-green-800 transition-all">
                                     Iniciar Sesión
                                 </a>
                             @endif
                             @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="px-6 py-3 bg-green-600 text-white rounded-lg shadow-lg hover:bg-green-700 transition-all">
+                                <a href="{{ route('register') }}" class="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-green-700 transition-all">
                                     Registrarse
                                 </a>
                             @endif
@@ -83,25 +82,23 @@
                 <div class="container">
                     <div class="row gy-4">
                         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                            <h3>Voluptatem dignissimos provident laboris nisi ut aliquip ex ea commodo</h3>
-                            <!-- <img src="{{ asset('img/about.jpg') }}" class="img-fluid rounded-4 mb-4" alt=""> -->
-                            <p>Ut fugiat ut sunt quia veniam. Voluptate perferendis perspiciatis quod nisi et. Placeat debitis quia recusandae odit et consequatur voluptatem. Dignissimos pariatur consectetur fugiat voluptas ea.</p>
-                            <p>Temporibus nihil enim deserunt sed ea. Provident sit expedita aut cupiditate nihil vitae quo officia vel. Blanditiis eligendi possimus et in cum. Quidem eos ut sint rem veniam qui. Ut ut repellendus nobis tempore doloribus debitis explicabo similique sit. Accusantium sed ut omnis beatae neque deleniti repellendus.</p>
+                            <h3>Formación centrada en ti</h3>
+                            <!-- <img src="{{ asset('img/tecolote-logo.png') }}" class="img-fluid rounded-4 mb-4" alt=""> -->
+                            <p>En un mundo que cambia a pasos acelerados, aprender nunca ha sido tan importante.</p>
+                            <p>En Tech-Olote diseñamos experiencias de aprendizaje personalizadas, pensadas para adaptarse a tus intereses y tu nivel de conocimiento.</p>
+                            <p>Te acompañamos desde los conceptos básicos hasta los proyectos más complejos, con una metodología práctica, didáctica y respaldada por profesionales del área tecnológica.</p>
+                            <p>Nuestro enfoque no es solo enseñarte a programar robots, sino ayudarte a desarrollar pensamiento lógico, creatividad y la capacidad de resolver problemas reales.</p>
                         </div>
                         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
                             <div class="content ps-0 ps-lg-5">
-                                <p class="fst-italic">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                magna aliqua.
-                                </p>
                                 <ul>
-                                <li><i class="bi bi-check-circle-fill"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-                                <li><i class="bi bi-check-circle-fill"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-                                <li><i class="bi bi-check-circle-fill"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
+                                <li><i class="bi bi-check-circle-fill"></i> <span>Aprendizaje práctico y aplicado.</span></li>
+                                <li><i class="bi bi-check-circle-fill"></i> <span>Contenido actualizado por expertos.</span></li>
+                                <li><i class="bi bi-check-circle-fill"></i> <span>Flexibilidad para tu ritmo de vida.</span></li>
                                 </ul>
                                 <p>
-                                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+                                Aprende cuando quieras y desde donde estés. Nuestra plataforma está diseñada para que avances a tu propio ritmo, sin horarios rígidos y con todo el contenido disponible 24/7.
+                                Nuestros cursos están estructurados en torno a proyectos reales. Desde el primer día trabajarás con sensores, microcontroladores y estructuras robóticas.
                                 </p>
                             </div>
                         </div>
@@ -111,8 +108,8 @@
 
             <!-- Section Title -->
             <section id="SectionTitle" class="container section-title" data-aos="fade-up"> 
-                    <h2>Services</h2>
-                    <p>Featured Services<br></p>
+                    <h2>Nuestros servicios</h2>
+                    <p>En tres bloques explicados<br></p>
             </section>
             <!-- Services Section -->
             <section id="services" class="services section">
@@ -121,24 +118,24 @@
                         <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
                             <div class="service-item">
                                 <div class="details position-relative">
-                                    <h3>Nesciunt Mete</h3>
-                                    <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis.</p>
+                                    <h3>Nivel Inicial</h3>
+                                    <p>Aprenderás los fundamentos de la robótica y programación desde cero. Te familiarizarás con componentes básicos y programarás tu primer robot.</p>
                                 </div>
                             </div>
                         </div><!-- End Service Item -->
                         <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
                             <div class="service-item">
                                 <div class="details position-relative">
-                                <h3>Eosle Commodi</h3>
-                                <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
+                                <h3>Nivel Intermedio</h3>
+                                <p>Profundizarás en tu lógica, el control de múltiples dispositivos, y el diseño de proyectos integradores. Programarás comportamientos y tareas complejas.</p>
                                 </div>
                             </div>
                         </div><!-- End Service Item -->
                         <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
                             <div class="service-item">
                                 <div class="details position-relative">
-                                <h3>Ledo Markt</h3>
-                                <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
+                                <h3>Nivel Avanzado</h3>
+                                <p>Desarrollarás sistemas inteligentes, visión por computadora, redes neuronales, procesamiento de datos y navegación autónoma. ¡Lleva tus habilidades a otro nivel!</p>
                                 </div>
                             </div>
                         </div><!-- End Service Item -->
@@ -151,14 +148,16 @@
             <div class="container footer-top">
                 <div class="row gy-4">
                     <div class="col-lg-4 col-md-6 footer-about">
-                        <a href="index.html" class="logo d-flex align-items-center">
-                            <span class="sitename">Nombre</span>
+                        <a href="#" class="logo d-flex align-items-center me-auto">
+                            <img src="{{ asset('img/tecolote-cabeza.png') }}" alt="">
+                            <span class="sitename">Tech-Olote</span>
                         </a>
                         <div class="footer-contact pt-3">
-                            <p>A108 Adam Street</p>
-                            <p>New York, NY 535022</p>
-                            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-                            <p><strong>Email:</strong> <span>info@example.com</span></p>
+                            <p>Carretera Transpeninsular Ensenada - Tijuana No. 3917
+                            Colonia Playitas C.P. 22860</p>
+                            <p>Ensenada, Baja California, México</p>
+                            <p class="mt-3"><strong>Phone:</strong> <span>(646) 152 8211</span></p>
+                            <p><strong>Email:</strong> <span>aenciso@uabc.edu.mx</span></p>
                         </div>
                         <div class="social-links d-flex mt-4">
                             <a href=""><i class="bi bi-twitter-x"></i></a>
@@ -167,42 +166,40 @@
                             <a href=""><i class="bi bi-linkedin"></i></a>
                         </div>
                     </div>
-                    <!--
+                    
                     <div class="col-lg-2 col-md-3 footer-links">
-                        <h4>Useful Links</h4>
+                        <h4>Links</h4>
                         <ul>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#">Principal</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#about">Acerca De</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="https://www.uabc.mx/">UABC</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="https://ciencias.ens.uabc.mx/">Facultad de Ciencias</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-2 col-md-3 footer-links">
-                        <h4>Our Services</h4>
+                        <h4>Nuestros servicios</h4>
                         <ul>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Development</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="https://www.uabc.mx/">UABC</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#">Anuncios UABC</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#">IA</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#">Diseño web</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-4 col-md-12 footer-newsletter">
-                        <h4>Our Newsletter</h4>
-                        <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+                        <h4>Noticias</h4>
+                        <p>Regístrate en nuestra hoja informativa y recibe las noticias más recientes sobre nuestros servicios.</p>
                         <form action="forms/newsletter.php" method="post" class="php-email-form">
-                            <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
-                            <div class="loading">Loading</div>
+                            <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Regístrate"></div>
+                            <div class="loading">Cargando...</div>
                             <div class="error-message"></div>
-                            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+                            <div class="sent-message">Tu registro ha sido añadido. ¡Gracias!</div>
                         </form>
                     </div>
-                    -->
+                    
                 </div>
             </div>
             <div class="container copyright text-center mt-4">
-                <p>© <span>Copyright</span> <strong class="px-1 sitename">Nombre</strong> <span>All Rights Reserved</span></p>
+                <p>© <span>Copyright</span> <strong class="px-1 sitename">Tech-Olote</strong> <span>All Rights Reserved</span></p>
                 <div class="credits">
                     <!-- All the links in the footer should remain intact. -->
                     <!-- You can delete the links only if you've purchased the pro version. -->

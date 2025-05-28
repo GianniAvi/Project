@@ -72,4 +72,36 @@ class CourseController extends Controller
 
         return redirect()->route('courses.index')->with('success', 'Compra realizada exitosamente.');
     }
+
+    // Mostrar detalles desde dashboard (ya lo tienes con show)
+    public function edit($id_course)
+    {
+        $course = Course::findOrFail($id_course);
+        return view('course.edit', compact('course'));
+    }
+
+    public function update(Request $request, $id_course)
+    {
+        $course = Course::findOrFail($id_course);
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'recommendedlevel' => 'required|numeric',
+            'durationdays' => 'required|numeric',
+            'price' => 'required|numeric',
+        ]);
+
+        $course->update($request->all());
+
+        return redirect()->route('dashboard')->with('success', 'Curso actualizado correctamente.');
+    }
+
+    public function destroy($id_course)
+    {
+        $course = Course::findOrFail($id_course);
+        $course->delete();
+
+        return redirect()->route('dashboard')->with('success', 'Curso eliminado correctamente.');
+    }
 }

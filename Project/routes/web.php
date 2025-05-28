@@ -4,7 +4,11 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\LibraryController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Course;
+use App\Http\Controllers\UserController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -39,5 +43,19 @@ Route::get('/library', [LibraryController::class, 'index'])->name('library');
 
 Route::get('/courses/{id_course}/buy', [CourseController::class, 'buy'])->name('courses.buy');
 Route::post('/courses/{id_course}/purchase', [CourseController::class, 'purchase'])->name('courses.purchase');
+
+Route::get('/my-courses/{course}', [LibraryController::class, 'showCourse'])->name('my-courses.show');
+
+Route::get('/library/course/{course}', [LibraryController::class, 'showCourse'])->name('library.course');
+
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware(['auth'])
+    ->name('dashboard');
+
+Route::resource('users', UserController::class)->only(['show', 'edit', 'update', 'destroy']);
+
+Route::middleware(['auth', 'rol:developer'])->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('courses', CourseController::class);
+});
 
 require __DIR__.'/auth.php';
