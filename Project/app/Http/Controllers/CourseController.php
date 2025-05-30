@@ -87,6 +87,7 @@ class CourseController extends Controller
             'durationdays' => 'required|numeric',
             'price' => 'required|numeric',
         ]);
+        
 
         Course::create($request->all());
 
@@ -103,7 +104,7 @@ class CourseController extends Controller
     {
         $course = Course::findOrFail($id);
 
-        $request->validate([
+        $validated = $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string',
             'recommendedlevel' => 'required|numeric',
@@ -111,9 +112,10 @@ class CourseController extends Controller
             'price' => 'required|numeric',
         ]);
 
-        $course->fill($request->all());
-        $course->save();
-
+        //$course->fill($request->all());
+        //dd($course,$request->all());
+        $course->update($validated);
+        dd($course);
         return redirect()->route('dashboard')->with('success', 'Curso actualizado correctamente.');
     }
 
