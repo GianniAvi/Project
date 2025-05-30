@@ -9,7 +9,7 @@
     <div class="bg-gray-800 rounded-xl shadow-md p-6 space-y-6">
         <h2 class="text-3xl font-bold text-white">Editar Curso</h2>
 
-        <form method="POST" action="{{ route('courses.update', $course->id_course) }}">
+        <form action="{{ route('courses.update', $course->id_course) }}" method="POST">
             @csrf
             @method('PUT')
 

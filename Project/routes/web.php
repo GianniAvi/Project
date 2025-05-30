@@ -58,4 +58,6 @@ Route::middleware(['auth', 'rol:developer'])->prefix('admin')->name('admin.')->g
     Route::resource('courses', CourseController::class);
 });
 
+Route::put('/courses/{id}', [CourseController::class, 'update'])->name('courses.update');
+
 require __DIR__.'/auth.php';

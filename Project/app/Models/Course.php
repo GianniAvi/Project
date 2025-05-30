@@ -29,8 +29,9 @@ class Course extends Model
      */
 
     protected $primaryKey = 'id_course';
-
-    protected $fillable = ['id_course', 'name', 'description', 'recommendedlevel', 'durationdays', 'price'];
+    public $incrementing = false;
+    protected $keyType = 'int'; 
+    protected $fillable = ['name', 'description', 'recommendedlevel', 'durationdays', 'price'];
 
     public function lessons()
     {

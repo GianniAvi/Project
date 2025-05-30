@@ -73,16 +73,35 @@ class CourseController extends Controller
         return redirect()->route('courses.index')->with('success', 'Compra realizada exitosamente.');
     }
 
-    // Mostrar detalles desde dashboard (ya lo tienes con show)
-    public function edit($id_course)
+    public function create()
     {
-        $course = Course::findOrFail($id_course);
+    return view('course.create');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'recommendedlevel' => 'required|numeric',
+            'durationdays' => 'required|numeric',
+            'price' => 'required|numeric',
+        ]);
+
+        Course::create($request->all());
+
+        return redirect()->route('dashboard')->with('success', 'Curso creado exitosamente.');
+    }
+
+    // Mostrar detalles desde dashboard (ya lo tienes con show)
+    public function edit(Course $course)
+    {
         return view('course.edit', compact('course'));
     }
 
-    public function update(Request $request, $id_course)
+    public function update(Request $request, $id)
     {
-        $course = Course::findOrFail($id_course);
+        $course = Course::findOrFail($id);
 
         $request->validate([
             'name' => 'required|string|max:255',
@@ -92,7 +111,8 @@ class CourseController extends Controller
             'price' => 'required|numeric',
         ]);
 
-        $course->update($request->all());
+        $course->fill($request->all());
+        $course->save();
 
         return redirect()->route('dashboard')->with('success', 'Curso actualizado correctamente.');
     }
